@@ -1,0 +1,20 @@
+Files:
+convert.sh -- script for converting with kentucky2nersc
+dym-mod-metro.cpp -- main file for simulating and computing observables
+evermore.sh  -- script for running dym
+group.c  -- file defines functions for group structures
+kentucky2nersc -- compiled code that converts from kentucky format to nersc, only works for SU(3)
+lattice.h  -- header for lattice.c
+Makefile  -- Makefile for various components
+timer.cpp -- used for timing algorithmic steps
+data/    -- default folder for saving data   
+dym-mod-metro-savecfg.cpp -- monte-carlo which outputs the configuration in matrix form, currently only works for SU(3)
+group.h  -- file for defining group structures
+groups   -- folder storing various groups
+lattice.c  -- file that defines lattice and funtions on it
+README    -- This file
+timer.h    -- used for timing algorithmic steps
+wilson_flow.c -- for computing the wilson flow, only naively works for SU(3)
+
+To run basic montecarlo use: 
+./evermore.sh {beta1} {beta2} {dimension} {Nt} {Nx} {group_file} {folder to output to WITH / at end} 
