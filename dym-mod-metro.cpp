@@ -84,7 +84,7 @@ printf("init done\n"); fflush(stdout);
 //                printf("\n");
 
 
-	for (unsigned k = 0; k < K*0; k++) update();
+	for (unsigned k = 0; k < K*10; k++) update();
 printf("thermo done\n"); fflush(stdout);
 
   for (unsigned n = 0; n < N; n++) 
