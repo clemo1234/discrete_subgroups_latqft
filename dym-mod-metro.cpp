@@ -153,10 +153,10 @@ printf("thermo done\n"); fflush(stdout);
     printf("ACC: %f\n", ((double)acc)/hit);
 
     
-    printf("CONFIGS: ");
+    /* printf("CONFIGS: ");
       for (unsigned i = 0; i < V*D; i++)
                         printf(" %03d", a[i]);
-                printf("\n");
+                printf("\n"); */
 
     tm.stop();
   }
