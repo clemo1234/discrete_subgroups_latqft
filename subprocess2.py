@@ -9,12 +9,15 @@ def generate_random_number():
 program_path = './dym-mod-metro'  # Use './program.exe' for Windows
 
 # Beta0 values
-beta_0 = np.linspace(0,20,200)
+beta_0 = np.linspace(25,400,1250)
 
 
 # Run the compiled C++ program with parameters
-def execute(parameters):
-    input = "./dym-mod-metro ./groups/myBT 4 4 4 " + str(float(parameters))+ " 0.000000e+00 0.000000e+00 " + str(generate_random_number())
+def execute(parameters, ran=False):
+    if ran == True:
+        input = "./dym-mod-metro ./groups/myBT 4 4 4 " + str(float(parameters))+ " 0.000000e+00 0.000000e+00 " + str(generate_random_number())
+    if ran == False:
+        input = "./dym-mod-metro ./groups/myBT 4 4 4 " + str(float(parameters))+ " 0.000000e+00 0.000000e+00 5137"
     result = subprocess.run(input, shell=True, capture_output=True, text=True)
     return result.stdout
 count = 0
