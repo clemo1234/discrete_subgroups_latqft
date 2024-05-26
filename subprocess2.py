@@ -16,7 +16,7 @@ beta_0 = np.linspace(0,10000000,60)
 # Run the compiled C++ program with parameters
 def execute(parameters, ran=True):
     if ran == True:
-        input = "./dym-mod-metro ./groups/myBO 4 4 4 " + str(float(parameters))+ " 0.000000e+00 0.000000e+00 " + str(generate_random_number())
+        input = "./dym-mod-metro ./groups/myBO 4 4 4 0.000000e+00 " + str(float(parameters))+ " 0.000000e+00 " + str(generate_random_number())
     if ran == False:
         input = "./dym-mod-metro ./groups/myBO 4 4 4 " + str(float(parameters))+ " 0.000000e+00 0.000000e+00 5137"
     result = subprocess.run(input, shell=True, capture_output=True, text=True)
