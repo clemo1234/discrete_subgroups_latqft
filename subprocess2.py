@@ -1,31 +1,33 @@
 import subprocess
 import numpy as np
 import random
+import datetime
 
 def generate_random_number():
-    return random.randint(1000, 9000)
+    return random.randint(0, 1000000)
 
 # Define the compiled C++ program path
 program_path = './dym-mod-metro'  # Use './program.exe' for Windows
 
 # Beta0 values
-beta_0 = np.linspace(25,400,1250)
+beta_0 = np.linspace(0,10000000,60)
 
 
 # Run the compiled C++ program with parameters
-def execute(parameters, ran=False):
+def execute(parameters, ran=True):
     if ran == True:
-        input = "./dym-mod-metro ./groups/myBT 4 4 4 " + str(float(parameters))+ " 0.000000e+00 0.000000e+00 " + str(generate_random_number())
+        input = "./dym-mod-metro ./groups/myBO 4 4 4 " + str(float(parameters))+ " 0.000000e+00 0.000000e+00 " + str(generate_random_number())
     if ran == False:
-        input = "./dym-mod-metro ./groups/myBT 4 4 4 " + str(float(parameters))+ " 0.000000e+00 0.000000e+00 5137"
+        input = "./dym-mod-metro ./groups/myBO 4 4 4 " + str(float(parameters))+ " 0.000000e+00 0.000000e+00 5137"
     result = subprocess.run(input, shell=True, capture_output=True, text=True)
     return result.stdout
 count = 0
 print("Output:")
-with open("output.txt", "a") as file:
+x = datetime.datetime.now()
+with open(f"./data/output{x}.txt", "a") as file:
     for value in beta_0:
         count += 1
-        print(f"Step: {count}")
+        print(f"Step: {count}. Complete: {(count/len(beta_0))*100}%")
         file.write(f"Beta_0: {value} \n" + execute(value))
     
 
