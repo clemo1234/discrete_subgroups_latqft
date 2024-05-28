@@ -17,7 +17,7 @@ extern "C" {
 #include "timer.h"
 
 #define K 100      // Decorrelation time
-#define N 100   // Number of samples
+#define N 300   // Number of samples
 
 typedef unsigned int uint;
 

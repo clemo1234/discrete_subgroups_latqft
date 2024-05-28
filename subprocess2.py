@@ -9,8 +9,8 @@ def generate_random_number():
 # Define the compiled C++ program path
 program_path = './dym-mod-metro'  # Use './program.exe' for Windows
 
-# Beta0 values
-beta_0 = np.linspace(0,3,30)
+# Beta1 values
+beta_0 = np.concatenate((np.linspace(0,1.8,120),np.linspace(1.85,3,round((3-1.85)/0.05))))
 
 
 # Run the compiled C++ program with parameters
