@@ -1,0 +1,4 @@
+Beta_0: 0.0 
+usage: ./dym-mod-metro group D Nt Nx beta0 beta1 beta2
+Beta_0: 3.0 
+usage: ./dym-mod-metro group D Nt Nx beta0 beta1 beta2
