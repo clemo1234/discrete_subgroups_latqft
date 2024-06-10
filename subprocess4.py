@@ -22,7 +22,7 @@ beta_0 = np.linspace(0,3,255)
 # Run the compiled C++ program with parameters
 def execute(parameters, ran=True):
     if ran == True:
-        input = "./dym-mod-metro_n100 ./groups/myBI 4 4 5 0.000000e+00 " + str(float(parameters))+ " 0.000000e+00 " + str(generate_random_number())
+        input = "./dym-mod-metro_n100 ./groups/myBT 4 4 5 0.000000e+00 " + str(float(parameters))+ " 0.000000e+00 " + str(generate_random_number())
         #input = ["./dym-mod-metro"] 
         #argument = ["./groups/myBO", "4", "4", "5", "0.000000e+00",str(float(parameters)),"0.000000e+00", str(generate_random_number())]
     if ran == False:
@@ -56,7 +56,7 @@ def group_into_fives(arr):
     
 def run_cpp_instance(beta_val,core):
     os.sched_setaffinity(0, [core])
-    process = subprocess.Popen("./dym-mod-metro_N300 ./groups/myBI 4 4 5 0.000000e+00 " + str(beta_val)+ " 0.000000e+00 " + str(generate_random_number()), stdout=subprocess.PIPE, shell=True)
+    process = subprocess.Popen("./dym-mod-metro_N300 ./groups/myBT 4 4 5 0.000000e+00 " + str(beta_val)+ " 0.000000e+00 " + str(generate_random_number()), stdout=subprocess.PIPE, shell=True)
     output, _ = process.communicate()
     result = output.decode("utf-8").strip()
     return beta_val, result
