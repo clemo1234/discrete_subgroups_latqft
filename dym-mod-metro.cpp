@@ -16,7 +16,7 @@ extern "C" {
 #include <random>
 #include "timer.h"
 
-#define K 1000      // Decorrelation time
+#define K 100     // Decorrelation time
 #define N 300   // Number of samples
 
 typedef unsigned int uint;
@@ -141,10 +141,10 @@ printf("thermo done\n"); fflush(stdout);
     double cor;
     printf("GMES: %e %e %e %e", 999.0, rep, imp, simpleplaq);
 //	printf("\n");
-    for(unsigned int k=0; k<Nx; ++k)
+    for(unsigned int k=0; k<=Nx; ++k)
     {
 //	printf("WL %d: ",k);
-    	for(unsigned int l=0; l<Nt; ++l) printf(" %e",wloop[k][l]);
+    	for(unsigned int l=0; l<=Nt; ++l) printf(" %e",wloop[k][l]);
 //	printf("\n");
     }
 
