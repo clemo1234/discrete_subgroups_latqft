@@ -18,7 +18,7 @@ program_path = './dym-mod-metro'  # Use './program.exe' for Windows
 # Beta1 values
 #beta_0 = np.concatenate((np.linspace(0,1.8,120),np.linspace(1.85,3,round((3-1.85)/0.05))))
 #beta_0 = np.linspace(0,3,3)
-beta_0 = np.ones(100)*1.25
+beta_0 = np.ones(10)*1.25
 # Run the compiled C++ program with parameters
 def execute(parameters, ran=True):
     if ran == True:
@@ -56,7 +56,7 @@ def group_into_fives(arr):
     
 def run_cpp_instance(beta_val,core):
     os.sched_setaffinity(0, [core])
-    process = subprocess.Popen("./dym-mod-metro ./groups/myBI 4 4 5 0.000000e+00 " + str(beta_val)+ " 0.000000e+00 " + str(generate_random_number()), stdout=subprocess.PIPE, shell=True)
+    process = subprocess.Popen("./dym-mod-metro ./groups/myBI 4 6 10 0.000000e+00 " + str(beta_val)+ " 0.000000e+00 " + str(generate_random_number()), stdout=subprocess.PIPE, shell=True)
     output, _ = process.communicate()
     result = output.decode("utf-8").strip()
     return beta_val, result
