@@ -22,11 +22,11 @@ beta_0 = np.ones(100)*1.25
 # Run the compiled C++ program with parameters
 def execute(parameters, ran=True):
     if ran == True:
-        input = "./dym-mod-metro ./groups/myBT 4 4 5 0.000000e+00 " + str(float(parameters))+ " 0.000000e+00 " + str(generate_random_number())
+        input = "./dym-mod-metro ./groups/myBI 4 4 5 0.000000e+00 " + str(float(parameters))+ " 0.000000e+00 " + str(generate_random_number())
         #input = ["./dym-mod-metro"] 
         #argument = ["./groups/myBO", "4", "4", "5", "0.000000e+00",str(float(parameters)),"0.000000e+00", str(generate_random_number())]
     if ran == False:
-        input = "./dym-mod-metro ./groups/myBO 4 4 5 0.000000e+00 " + str(float(parameters))+ " 0.000000e+00 5137"
+        input = "./dym-mod-metro ./groups/myBI 4 4 5 0.000000e+00 " + str(float(parameters))+ " 0.000000e+00 5137"
     #result = subprocess.run("taskset --cpu-list "+ str(core)+' '+input, shell=True, capture_output=True, text=True)
     process = subprocess.Popen(input, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, shell=True)
     #psutil.Process(process.pid).cpu_affinity([core])
@@ -56,7 +56,7 @@ def group_into_fives(arr):
     
 def run_cpp_instance(beta_val,core):
     os.sched_setaffinity(0, [core])
-    process = subprocess.Popen("./dym-mod-metro ./groups/myBT 4 4 5 0.000000e+00 " + str(beta_val)+ " 0.000000e+00 " + str(generate_random_number()), stdout=subprocess.PIPE, shell=True)
+    process = subprocess.Popen("./dym-mod-metro ./groups/myBI 4 4 5 0.000000e+00 " + str(beta_val)+ " 0.000000e+00 " + str(generate_random_number()), stdout=subprocess.PIPE, shell=True)
     output, _ = process.communicate()
     result = output.decode("utf-8").strip()
     return beta_val, result
